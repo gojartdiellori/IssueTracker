@@ -1,4 +1,7 @@
 .vscode
 bin
 obj
+Migrations
 .env
+appsettings.Development.json
+appsettings.json
