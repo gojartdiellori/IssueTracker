@@ -1,5 +1,7 @@
 using IssueTracker.Data;
 using IssueTracker.Models;
+using IssueTracker.Services;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddDbContext<IssueTrackerDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("IssueTrackerDatabase")));
+
+builder.Services.AddScoped<IIssueService,IssueService>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
